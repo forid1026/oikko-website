@@ -1,4 +1,4 @@
-<header>
+{{-- <header>
     <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
             <a href="" wire:click.prevent="setPage('home')" class="flex items-center">
@@ -37,7 +37,7 @@
                             aria-current="page" wire:click.prevent="setPage('home')">Home</a>
                     </li>
                     <li>
-                        <a wire:click.prevent="setPage('about')"  href="#"
+                        <a href="/about" wire:navigate  href="#"
                             class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">About</a>
                     </li>
                     <li>
@@ -62,4 +62,4 @@
     @elseif ($currentPage === 'contact')
         @livewire('pages.contact')
     @endif
-</header>
+</header> --}}
