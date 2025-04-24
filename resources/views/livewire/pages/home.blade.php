@@ -1,14 +1,14 @@
-<div>
+<main>
     <div class="w-full">
         <!-- Swiper -->
         <div class="swiper bannerSwiper">
             <div class="swiper-wrapper">
+                @foreach ($sliders as $slider)
                 <div class="swiper-slide">
-                    <img src="{{ asset('banner/banner-1.jpg') }}" class="w-full h-[600px] object-cover" alt="Banner">
+                    <img src="{{ asset('storage/' . $slider->image)  }}" class="w-full h-[600px] object-cover" alt="{{ $slider->title }}">
                 </div>
-                <div class="swiper-slide">
-                    <img src="{{ asset('banner/banner-1.jpg') }}" class="w-full h-[600px] object-cover" alt="Banner">
-                </div>
+                @endforeach
+                
             </div>
 
             <!-- Pagination & Navigation -->
@@ -24,23 +24,15 @@
 
             <!-- About Text -->
             <div>
-                <h2 class="text-4xl font-bold text-gray-800 mb-6">About Us</h2>
-                <p class="text-gray-600 leading-relaxed mb-4">
-                    Oikko is a non-Profit welfare Organization. We have started our journy from 2015. We helped more
-                    than 3000 people in whole Bangladesh. We helped poor people in every Eid, Winter Season and
-                    Flood-Victims We have more than 100 team members. All them so supportive and amazing. We are always
-                    here to help you.
-                </p>
-                <p class="text-gray-600 leading-relaxed">
-                    Provide support to underprivileged section of the society specially extreme poor, homeless and
-                    orphan children through quality education, nourishment & shelter to make them resources for the
-                    nation.
-                </p>
+                <h3 class="text-3xl font-bold text-gray-800 mb-6">{{ $about->title }}</h3>
+                <div class="text-gray-600  mb-4 text-justify">
+                    {!! $about->content !!}
+                </div>
             </div>
 
             <!-- About Image -->
             <div>
-                <img src="https://i.ibb.co/54NPmm7/1.jpg" alt="About Us"
+                <img src="{{ asset('storage/' . $about->image) }}" alt="About Us"
                     class="w-full rounded-2xl shadow-lg object-cover h-[400px]">
             </div>
         </div>
@@ -134,4 +126,4 @@
             </form>
         </div>
     </section>
-</div>
+</main>
