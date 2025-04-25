@@ -16,7 +16,7 @@
                     </a>
 
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">{{ $project->name }}</h3>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">{{ $project->title }}</h3>
                         <p class="text-gray-600 text-sm mb-4">{!! $project->short_description !!}</p>
                         <a wire:navigate href="{{ route('projects.show', $project->slug) }}"
                             class="text-blue-600 hover:underline text-sm font-medium">

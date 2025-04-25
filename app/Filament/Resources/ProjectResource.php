@@ -14,6 +14,8 @@ use Filament\Tables;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class ProjectResource extends Resource
 {
@@ -25,7 +27,20 @@ class ProjectResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('title')->required()->columnSpan(2),
+
+                TextInput::make('title')
+                    ->label('Project Title')
+                    ->required()
+                    ->live() // For reactive behavior
+                    ->afterStateUpdated(
+                        fn($state, callable $set) =>
+                        $set('slug', Str::slug($state)) // Auto-generate slug from name
+                    ),
+
+                TextInput::make('slug')
+                    ->required()
+                    ->unique('projects', 'slug', fn ($record) => $record ? $record->id : null),
+
                 TextInput::make('short_description')->required()->columnSpan(2),
                 RichEditor::make('description')->required()->columnSpan(2),
                 FileUpload::make('image')
@@ -35,7 +50,11 @@ class ProjectResource extends Resource
                     ->options([
                         'active' => 'Active',
                         'inactive' => 'Inactive',
-                    ])
+                    ]),
+
+                TextInput::make('created_by')
+                    ->hidden()
+                    ->default(Auth::id())
             ]);
     }
 
@@ -52,6 +71,10 @@ class ProjectResource extends Resource
                         'inactive' => 'danger',
                     ])
                     ->formatStateUsing(fn($state) => ucfirst($state)),
+
+                TextColumn::make('created_by')
+                    ->label('Created By')
+                    ->formatStateUsing(fn($state): string => Auth::user()->id == $state ? 'You' : $state)
 
             ])
             ->filters([

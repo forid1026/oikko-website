@@ -6,21 +6,21 @@
             <img src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->name }} Image"
                 class="w-full h-96 object-cover rounded-2xl shadow-md mb-8">
 
-            <h1 class="text-4xl font-bold text-gray-800 mb-4">{{ $project->name }}</h1>
+            <h1 class="text-3xl font-bold text-gray-800 mb-4">{{ $project->title }}</h1>
 
             <div class="flex items-center gap-4 mb-6">
-                <img src="{{ asset('storage/' . $project->author->image) }}" alt="{{ $project->author->name }} Avatar"
+                <img src="{{ asset('storage/' . $project->author->image ?? null) }}" alt="{{ $project->author->name ?? null }} Avatar"
                     class="w-10 h-10 rounded-full object-cover shadow-sm">
 
                 <div class="text-sm text-gray-500">
-                    <p class="text-gray-800 font-semibold capitalize">{{ $project->author->name }}</p>
+                    <p class="text-gray-800 font-semibold capitalize">{{ $project->author->name ?? null}}</p>
                     <p>{{ $project->created_at->format('F d, Y') }}</p>
                 </div>
             </div>
 
 
 
-            <div class="prose max-w-none text-gray-700">
+            <div class="prose max-w-none text-gray-700 text-justify">
                 {!! $project->description !!}
             </div>
 
