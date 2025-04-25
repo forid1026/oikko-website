@@ -118,10 +118,10 @@
             <div>
                 <h4 class="text-xl font-semibold mb-4">Quick Links</h4>
                 <ul class="space-y-2 text-sm text-gray-300">
-                    <li><a wire:click.prevent="setPage('home')" class="hover:text-white">Home</a></li>
-                    <li><a wire:click.prevent="setPage('about')" class="hover:text-white">About</a></li>
-                    <li><a wire:click.prevent="setPage('projects')" class="hover:text-white">Projects</a></li>
-                    <li><a wire:click.prevent="setPage('contact')" class="hover:text-white">Contact</a></li>
+                    <li><a wire:navigate href="{{ route('home') }}" class="hover:text-white">Home</a></li>
+                    <li><a wire:navigate href="{{  route('about') }}"  class="hover:text-white">About</a></li>
+                    <li><a wire:navigate href="{{ route('projects.index') }}" class="hover:text-white">Projects</a></li>
+                    <li><a wire:navigate href="{{ route('contact') }}" class="hover:text-white">Contact</a></li>
                 </ul>
             </div>
 
