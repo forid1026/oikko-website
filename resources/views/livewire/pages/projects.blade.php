@@ -8,39 +8,26 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            <div class="bg-gray-50 rounded-2xl shadow-md overflow-hidden transition hover:shadow-xl">
-                <img src="https://i.ibb.co/MGnWfZd/11752506-1600201733573841-791237990206415354-n.png" alt="Project"
-                    class="w-full h-56 object-cover">
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Oikko Donate & Smile 15</h3>
-                    <p class="text-gray-600 text-sm mb-4">Project Description</p>
-                    <a href="" class="text-blue-600 hover:underline text-sm font-medium">
-                        Learn more →
+            @foreach ($projects as $project)
+                <div class="bg-gray-50 rounded-2xl shadow-md overflow-hidden transition duration-300 transform hover:shadow-xl hover:scale-105">
+                    <a wire:navigate href="{{ route('projects.show', $project->slug) }}">
+                        <img src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->name }} Image" loading="lazy"
+                        class="w-full h-56 object-cover">
                     </a>
+
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">{{ $project->name }}</h3>
+                        <p class="text-gray-600 text-sm mb-4">{!! $project->short_description !!}</p>
+                        <a wire:navigate href="{{ route('projects.show', $project->slug) }}"
+                            class="text-blue-600 hover:underline text-sm font-medium">
+                            Learn more →
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="bg-gray-50 rounded-2xl shadow-md overflow-hidden transition hover:shadow-xl">
-                <img src="https://i.ibb.co/6yzrZZV/13613542-1721660314761315-4118021825931788512-o.jpg" alt="Project"
-                    class="w-full h-56 object-cover">
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Oikko Eid for Poor Peoples 16</h3>
-                    <p class="text-gray-600 text-sm mb-4">Project Description</p>
-                    <a href="" class="text-blue-600 hover:underline text-sm font-medium">
-                        Learn more →
-                    </a>
-                </div>
-            </div>
-            <div class="bg-gray-50 rounded-2xl shadow-md overflow-hidden transition hover:shadow-xl">
-                <img src="https://i.ibb.co/LNKzLfK/19477356-1879850372275641-2790745683552996462-o.jpg" alt="Project"
-                    class="w-full h-56 object-cover">
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Oikko Eid for Poor Peoples 2017</h3>
-                    <p class="text-gray-600 text-sm mb-4">Project Description</p>
-                    <a href="" class="text-blue-600 hover:underline text-sm font-medium">
-                        Learn more →
-                    </a>
-                </div>
-            </div>
+            @endforeach
+            @if ($projects->count() == 0)
+                <p class="text-center text-gray-500 col-span-full">No projects available at the moment.</p>
+            @endif
         </div>
     </section>
 </div>
