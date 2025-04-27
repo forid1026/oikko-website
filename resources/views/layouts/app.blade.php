@@ -26,12 +26,6 @@
                     <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Oikko</span>
                 </a>
                 <div class="flex items-center lg:order-2">
-                    <a href="#"
-                        class="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Log
-                        in</a>
-                    <a href="#"
-                        class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">Get
-                        started</a>
                     <button data-collapse-toggle="mobile-menu-2" type="button"
                         class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                         aria-controls="mobile-menu-2" aria-expanded="false">
@@ -139,16 +133,16 @@
             <div>
                 <h4 class="text-xl font-semibold mb-4">Follow Us</h4>
                 <div class="flex space-x-4">
-                    <a href="#" class="hover:text-blue-400"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="hover:text-pink-500"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="hover:text-blue-300"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="hover:text-red-600"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.facebook.com" class="hover:text-blue-400"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com" class="hover:text-pink-500"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.twitter.com" class="hover:text-blue-300"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.youtube.com" class="hover:text-red-600"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </div>
 
         <div class="mt-12 text-center text-sm text-gray-500 border-t border-gray-700 pt-6">
-            © {{ date('Y') }} Oikko. All rights reserved.
+            © {{ date('Y') }} Oikko. All Rights reserved.
         </div>
     </footer>
 
